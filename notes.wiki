@@ -1,0 +1,76 @@
+algorithm, worst, average, best
+quicksort, O(n^2), O(nlgn), O(nlgn) <- but quicksort usually faster than heap
+    when sorting a list of 1_000_000 numbers that were of size 1000 it would
+    often overflow. I believe this is because of how I made the alg, not the
+    alg itself
+
+heapsort, O(nlgn), O(nlgn), O(nlgn)
+    reliably good times, no worry of overflowing as it is not recursive.
+    
+counting sort 
+    suprisingly very fast, and often faster than quick sort.
+    there are restrictions however:
+        1. You must know the maximum number of the array to sort efficiently
+        2. numbers can not be negative
+        3. if theres a big range between numbers, such as an array like so:
+        [1, 99999] this will take count sort a very very long time.
+    
+    One good thing about counting sort is that it is stable! this means that
+    when sorting the elements will retain their position.
+    
+    [5, 1, 1, 3]
+      \/  /  /
+      /\____/_
+     /  /  /  \
+   [1, 1, 3,  5]       
+   
+   Note how the order of the ones stayed the same, the first one is still in
+   the front.
+
+radix sort:
+    Often applies counting sort. It compares the last element of each number and
+    sorts it in that order. it repeats this process until the elements are all
+    sorted. This is stable, and overcomes one of counting sorts flaws, the diff
+    between numbers. 
+    
+    STRENGTHS:
+        * Is a bit more consistent then counting sort
+    
+    Weaknesses
+        * Is slower than counting sort usually (as it applies counting sort
+          more times)
+    
+    
+    You would need to perform counting sort n times, where n is the length of the
+    largest number. In other words, you would need to perform counting sort as 
+    long as n <= k where k is the length of the largest number in the array
+    
+bucket sort:
+    This approach is best used when the numbers are evenly spread in a range.
+    We often get the sqrt of the length of the array and make that many buckets
+    also of size sqrt. We then divide the array into buckets, sort the buckets
+    and then join the value into one sorted array. 
+    
+    It often uses insertion sort or quick sort for sorting the bucket arrays
+    
+    STRENGTHS:
+        * Good one everything is evenly distributed
+    
+    WEAKNESSES:
+        * Poor performance when items are not evenly distributed
+
+Binary trees:
+    
+    STRENGTHS:
+        * O(h) time for SEARCH, PREDECESSOR, SUCCESSOR, MINIMUM, MAXIMUM,
+        INSERT AND DELETE. (log n if balanced)
+    
+    WEAKNESSES:
+        * Binary trees can become unbalanced basically turning them into a linked
+        list. This means their time complexity can vary drastically. For example
+        if a tree had a height of 3 with seven elements, the time complexity would
+        be O(3), but what if it had seven elements with a height of seven? It would
+        have a time complexity of O(n)
+        
+        * TLDR THEY CAN BECOME UNBALANCED AND TURN INTO LINKED LISTS!
+    
